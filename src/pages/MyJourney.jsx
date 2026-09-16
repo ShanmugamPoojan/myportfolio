@@ -8,28 +8,39 @@ function MyJourney() {
   const [achievements, setAchievements] = useState([]);
 
   useEffect(() => {
-    setJourneyData(portfolioData.journey);
+    setJourneyData([...portfolioData.journey].reverse());
     setAchievements(portfolioData.achievements);
   }, []);
 
   return (
     <div className="journey-page main-page">
       <div className="journey-header main-page-header container">
-        <h2>
+        <h1 className="hero-subtitle">
           <span>
             My Journey
           </span>
-        </h2>
-        <p className="subtitle">My journey into the world of technology has been shaped by curiosity, determination, and a desire to create something of my own. From the beginning of my educational journey, I was interested in computers and technology. I was also one of the brighter students in my class and always had a curiosity to explore new things. I would describe myself as an ambivert—someone who can enjoy both social interactions and personal time.</p>
+        </h1>
+        <p className="hero-description">My journey into the world of technology has been shaped by curiosity, determination, and a desire to create something of my own. From the beginning of my educational journey, I was interested in computers and technology. I was also one of the brighter students in my class and always had a curiosity to explore new things. I would describe myself as an ambivert—someone who can enjoy both social interactions and personal time.</p>
       </div>
 
       <div className="cards-container scatter-pattern">
         <div className='container'>
-          {/* <h2>Heloo</h2> */}
+          {achievements.length > 0 && (
+            <div className="achievements-section">
+              <h1 className="hero-subtitle">Achievements</h1>
+              <ul className="achievements-list">
+                {achievements.map((item) => (
+                  <li className="skill-card" key={item}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {journeyData.map((item, index) => (
-            <Card item={{ 'index': index + 1, ...item }} />
-            // <Card item={{"title": "Hello", "description": "Hello des"}}></Card>
+            <Card key={item.title || index} item={{ 'index': item.id, ...item }} />
           ))}
+
         </div>
       </div>
 

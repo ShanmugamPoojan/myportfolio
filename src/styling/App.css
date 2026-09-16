@@ -1,6 +1,17 @@
+/* ==========================================================================
+   App.css
+   Design tokens, base element styles and the shared layout / typography
+   primitives that are reused across every page.
+
+   Component-scoped styles live in their own files:
+     header.css · footer.css · card.css · terminal.css
+   Page-scoped styles live in:
+     home.css · about.css · projects.css · myjourney.css
+   ========================================================================== */
+
 :root {
   --primary: #ffffff;
-  --primary-light: #FBE9D0;
+  --primary-light: #ffffff;
 
   --secondary: #000000;
   --secondary-light: #c4c4c4;
@@ -9,27 +20,31 @@
   --text-light: #ffffff;
 
   --border: 1.4rem solid var(--secondary);
-  --border-card: 0.25rem solid var(--secondary);
+  --border-radius: 10px;
+  --border-card: 0.3rem solid var(--secondary);
 
   --shadow: 4px 4px 0px #222222;
   --shadow-hover: 8px 8px 0px #222222;
+  --shadow-active: 2px 2px 0px #222222;
 
   --font-title: 1.3rem;
   --font-desc: 1.2rem;
 
-  /* --cursor: "url(/portfolio/assets/cursor.png)" */
+  /* Space reserved at the top of every page so the floating header
+     never sits on top of the content. */
+  --header-offset: 7rem;
+}
+
+/* ============================ Base elements ============================ */
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Baloo Thambi 2", system-ui;
 }
 
 html {
-  cursor: url(/myportfolio/assets/cursor.png), auto;
-}
-
-a:hover,
-button:hover {
-  cursor: url(/myportfolio/assets/cursor_pointer.png), auto;
-}
-
-html {
+  cursor: url(../assets/cursor.png), auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -38,14 +53,32 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+body {
+  background-color: var(--primary-light);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+button:hover {
+  cursor: url(../assets/cursor_pointer.png), auto;
+}
+
+button {
+  font: inherit;
+}
+
 pre {
   margin: 0;
 }
 
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-family: "Baloo Thambi 2", system-ui;
+p {
+  margin: 0.2rem auto;
 }
 
 h1,
@@ -54,83 +87,87 @@ h3 {
   margin: auto 0;
 }
 
-
-.page {
-  min-height: 85vh;
+h1 {
+  font-size: 3rem;
 }
 
-.scatter-pattern {
-  background-image: url("/myportfolio/assets/pattern-grey.svg");
-  background-size: 6px;
+h2 {
+  font-size: 2.2rem;
 }
 
-body {
-  background-color: var(--secondary);
-  margin: 0;
-  overflow-x: hidden;
+h3 {
+  font-size: 1.5rem;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.1;
-  /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); */
-}
-
-
-h1>span:hover {
+h1 > span:hover {
   text-shadow: 2px 2px var(--secondary), -2px -2px #ff006e;
 }
 
-h2>span:hover {
-  text-shadow: 2px 2px var(--secondary), -2px -2px #ff006e;
-}
+/* ============================== Layout ================================= */
 
-/* =========================== Page =========================== */
+.main {
+  min-height: 100vh;
+}
 
 .main-page {
   margin: auto;
-  padding: 4rem 0 0 0;
+  padding-top: var(--header-offset);
   width: 100%;
   min-height: 70vh;
-  background: var(--primary);
-  border: var(--border);
-  border-bottom: none;
+  background: transparent;
+  border: none;
 }
 
 .main-page-header {
-  text-align: justify;
+  text-align: left;
   padding: 2rem 6rem;
   background: transparent;
   border: none;
   position: relative;
 }
 
-.main-page-header h2{
-  font-size: 3rem;
-}
-/* ======================= Container ================================= */
-
 .container {
   margin: 0 auto;
-  padding: 1rem;
+  padding: 6rem 0;
   width: 80vw;
   max-width: 1200px;
 }
 
-/* =================== Buttons =============================== */
+.scatter-pattern {
+  background-image: url("../assets/pattern-grey.svg");
+  background-size: 6px;
+}
+
+/* ============================ Typography =============================== */
+
+.hero-subtitle {
+  font-size: 3rem;
+  color: var(--secondary);
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  text-align: left;
+  color: var(--secondary);
+  margin: 1rem 0;
+  font-weight: 400;
+}
+
+/* ============================== Buttons ================================ */
 
 .button {
-  padding: 1.5rem;
+  padding: 1rem;
   font-size: 1.2rem;
   color: var(--secondary);
   background-color: var(--secondary-light);
   text-align: left;
-  font-weight: bolder;
+  font-weight: 600;
   border: var(--border-card);
+  border-radius: var(--border-radius);
   transition: all 0.3s ease;
 }
 
@@ -139,38 +176,109 @@ h2>span:hover {
   color: var(--primary);
 }
 
-/* ======================= Responsive Design ======================= */
+.button:active {
+  transform: scale(0.98);
+}
+
+/* ===================== Shared tile (skills / achievements) ============== */
+
+.skill-card {
+  background-color: var(--primary);
+  border: var(--border-card);
+  border-radius: var(--border-radius);
+  padding: 1.2rem;
+  font-weight: 600;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.skill-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.skill-card.visible {
+  animation: slideInUp 0.8s ease forwards;
+  transform: scale(1);
+}
+
+/* ========================== Shared keyframes =========================== */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ======================= Responsive Design ============================= */
+
+/* Laptops / small desktops */
+@media (max-width: 1200px) {
+
+  .main-page-header {
+    padding: 2rem 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2.6rem;
+  }
+}
 
 /* Tablets */
 @media (max-width: 1024px) {
 
-  .main-page {
-    padding: 4rem 0 0 0;
-    border-width: 1rem;
+  :root {
+    --header-offset: 6.5rem;
   }
 
   .main-page-header {
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .container {
     width: 90vw;
-    /* padding: 1rem; */
+    padding: 4rem 0;
   }
 
-  .container h2 {
-    font-size: 2.5rem;
+  .hero-subtitle {
+    font-size: 2.3rem;
+  }
+
+  .hero-description {
+    font-size: 1.3rem;
   }
 
   .button {
-    padding: 1.2rem;
+    padding: 0.9rem;
     font-size: 1.1rem;
+  }
+
+  .skill-card {
+    padding: 1rem;
   }
 }
 
-
-/* Mobile Devices */
+/* Mobile devices */
 @media (max-width: 768px) {
+
+  :root {
+    --header-offset: 6rem;
+  }
 
   html {
     cursor: auto;
@@ -181,94 +289,127 @@ h2>span:hover {
     cursor: pointer;
   }
 
-  .page {
-    min-height: 90vh;
-  }
-
   .main-page {
-    padding: 3rem 0 0 0;
     min-height: 80vh;
-    border: 0.7rem solid var(--secondary);
-    border-bottom: none;
   }
 
   .main-page-header {
-    padding: 2.5rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .container {
-    width: 95vw;
-    /* padding: 0.75rem; */
+    width: 92vw;
+    padding: 3rem 0;
   }
 
-  .container h2 {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .hero-subtitle {
     font-size: 2rem;
     letter-spacing: 0.5px;
   }
 
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
   .button {
     width: 100%;
-    padding: 1rem;
+    padding: 0.9rem;
     font-size: 1rem;
     text-align: center;
   }
 }
 
-
-/* Small Mobile Devices */
+/* Small mobile devices */
 @media (max-width: 480px) {
 
-  .page {
-    min-height: 90vh;
+  :root {
+    --header-offset: 5.5rem;
   }
 
   .main-page {
-    padding: 2rem 0 0 0;
     min-height: 85vh;
-    border-width: 0.5rem;
   }
 
   .main-page-header {
-    padding: 2rem 0.75rem;
+    padding: 1.25rem 0.85rem;
   }
 
   .container {
-    width: 100%;
+    width: 94vw;
+    padding: 2.5rem 0;
   }
 
-  .container h2 {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-subtitle {
     font-size: 1.7rem;
     line-height: 1.2;
   }
 
+  .hero-description {
+    font-size: 1rem;
+  }
+
   .button {
-    padding: 0.9rem;
+    padding: 0.8rem;
     font-size: 0.95rem;
+  }
+
+  .skill-card {
+    padding: 0.9rem;
   }
 }
 
-
-/* Extra Small Devices */
+/* Extra small devices */
 @media (max-width: 360px) {
 
-  .main-page {
-    padding-top: 1.5rem;
+  :root {
+    --header-offset: 5rem;
   }
 
   .main-page-header {
-    padding: 1.5rem 0.5rem;
+    padding: 1rem 0.6rem;
   }
 
   .container {
-    padding: 0.5rem;
+    width: 95vw;
+    padding: 2rem 0 4rem 0;
   }
 
-  .container h2 {
+  .hero-subtitle {
     font-size: 1.5rem;
   }
 
   .button {
-    padding: 0.75rem;
+    padding: 0.7rem;
     font-size: 0.9rem;
+  }
+}
+
+/* ===================== Reduced motion preference ======================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,40 +1,28 @@
+/* ==========================================================================
+   home.css  —  styles for Home.jsx and the MacEyes component it renders
+   ========================================================================== */
+
 .home-page {
-  /* margin-top: 6rem; */
-  padding-top: 6rem;
-
-  /* margin-bottom: 4rem; */
-  background: var(--primary);
-  position: relative;
-
-  border: var(--border);
-  border-bottom: none;
+  overflow-x: hidden;
 }
 
-.hero-greeting {
-  font-size: 1.3rem;
-  color: var(--secondary);
-  font-weight: 700;
-  letter-spacing: 2px;
-  animation: bounce 2s infinite;
-}
+/* ============================ Hero section ============================= */
 
 .hero-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  max-width: 1000px;
-  margin: auto;
-  margin-bottom: 4rem;
-  padding: 2rem;
-  background: transparent;
+  gap: 1rem;
+  z-index: 600;
+
+  width: 100%;
+  padding: 6rem;
+  background: var(--primary);
   border: none;
   box-shadow: none;
   text-align: center;
   position: relative;
-
-  border: 1rem solid black;
-  border-radius: 40px;
 }
 
 .hero-content {
@@ -44,123 +32,170 @@
   width: 100%;
 }
 
+.hero-subcontent {
+  align-items: bottom;
+  gap: 1rem;
+  width: 100%;
+}
+
 .hero-title {
-  font-size: 4.5rem;
+  font-size: 8rem;
+  width: fit-content;
   color: var(--secondary);
   margin: 1rem 0;
   letter-spacing: 3px;
   font-weight: 900;
   line-height: 1.2;
   text-align: left;
-
 }
 
-/* TYPEWRITER EFFECT */
+/* ========================= Typewriter effect =========================== */
+
 .typewriter {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid var(--secondary);
-  /* cursor */
 
   width: 0;
-  animation: typing 2.5s steps(20, end) forwards,
+  animation: typing 2s steps(20, end) forwards,
     blink 0.7s step-end infinite;
 }
 
-/* MULTI-LINE SUPPORT */
 .typewriter br {
   display: block;
 }
 
-/* TYPING */
 @keyframes typing {
   from {
-    width: 0
+    width: 0;
   }
 
   to {
-    width: 100%
+    width: 100%;
   }
 }
 
-/* CURSOR BLINK */
 @keyframes blink {
   50% {
-    border-color: transparent
+    border-color: transparent;
   }
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
+/* ======================= MacEyes (hero artwork) ======================== */
+
+.hero-image {
+  width: 400px;
+  display: block;
+}
+
+.mac-eyes-wrapper {
+  position: relative;
+  width: 400px;
+  max-width: 100%;
+}
+
+.mac-pupil-cover {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mac-pupil-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 55%;
+  height: 55%;
+  transition: transform 0.06s ease-out;
+  pointer-events: none;
+}
+
+.mac-speech-bubble {
+  position: absolute;
+  top: -3.4rem;
+  left: 50%;
+  z-index: 5;
+
+  background-color: var(--primary);
+  border: var(--border-card);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 0.6rem 1.1rem;
+
+  font-weight: 700;
+  font-size: 1rem;
   color: var(--secondary);
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: 1px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px) scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.hero-description {
-  font-size: 1.1rem;
-  color: var(--secondary);
-  line-height: 1.9;
-  margin: 1rem 0;
-  font-weight: 400;
+.mac-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 85%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.65rem solid transparent;
+  border-right: 0.65rem solid transparent;
+  border-top: 0.75rem solid var(--secondary);
 }
 
-.featured-section {
-  padding-bottom: 8rem;
-  /* padding: 8rem 2rem; */
-  text-align: center;
-  border-top: var(--border-card);
+.mac-speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 85%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.55rem solid var(--primary);
+  z-index: 1;
 }
 
+.mac-speech-bubble.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
+/* ===================== Home Page Responsive Design ===================== */
+
+/* Laptops / small desktops */
+@media (max-width: 1200px) {
+
+  .hero-section {
+    padding: 4rem 3rem;
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  .hero-title {
+    font-size: 6rem;
+  }
+
+  .hero-image,
+  .mac-eyes-wrapper {
+    width: 340px;
   }
 }
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 1rem auto;
-}
-
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a.active .menu-button {
-  border-color: #f8b4d8;
-  background-color: rgba(248, 180, 216, 0.15);
-}
-
-/* ======================= Home Page Responsive Design ======================= */
 
 /* Tablets */
 @media (max-width: 1024px) {
 
-  .home-page {
-    padding-top: 8rem;
-    border-width: 1rem;
-  }
-
   .hero-section {
-    width: 90%;
-    padding: 1.5rem;
-    border-width: 0.8rem;
-    border-radius: 30px;
+    width: 100%;
+    padding: 2.5rem 1.5rem;
+    flex-direction: column;
+    gap: 2.5rem;
   }
 
   .hero-content {
@@ -168,52 +203,22 @@ a.active .menu-button {
   }
 
   .hero-title {
-    font-size: 3.5rem;
-    letter-spacing: 2px;
+    font-size: 4.5rem;
+    width: 100%;
   }
 
-  .hero-subtitle {
-    font-size: 1.3rem;
+  .hero-image,
+  .mac-eyes-wrapper {
+    width: 280px;
   }
-
-  .hero-description {
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin: 1rem auto;
-    width: 90%;
-  }
-
-  .featured-section {
-    padding-bottom: 6rem;
-  }
-
 }
 
-
-/* Mobile Devices */
-@media (max-width: 820px) {
-
-  .home-page {
-    padding-top: 6rem;
-    border-width: 0.7rem;
-  }
-
-  .hero-greeting {
-    font-size: 1.1rem;
-    letter-spacing: 1.5px;
-  }
+/* Mobile devices */
+@media (max-width: 768px) {
 
   .hero-section {
-    width: 92%;
     padding: 1.5rem 1rem;
-    margin-bottom: 3rem;
-    border-width: 0.6rem;
-    border-radius: 24px;
+    gap: 2rem;
   }
 
   .hero-content {
@@ -221,77 +226,53 @@ a.active .menu-button {
   }
 
   .hero-title {
-    font-size: 2.7rem;
+    font-size: 3.2rem;
     letter-spacing: 1.5px;
-    line-height: 1.2;
-    word-break: break-word;
+    margin: 0.5rem 0;
   }
 
+  /* The steps() typing animation can't wrap, so on small screens the
+     headline simply renders as normal wrapping text. */
   .typewriter {
     width: 100%;
     max-width: 100%;
     white-space: normal;
     line-height: 1.2;
     border-right: none;
-    /* Allow long words/text to wrap */
+    overflow: visible;
     overflow-wrap: anywhere;
     word-break: break-word;
     animation: none;
   }
 
-  .hero-subtitle {
-    font-size: 1.15rem;
-    line-height: 1.5;
+  .hero-subcontent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .hero-description {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 0.5rem 0;
+  .hero-image,
+  .mac-eyes-wrapper {
+    width: 220px;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    width: 90%;
-    margin: 1rem auto;
+  .mac-eyes-wrapper {
+    margin-top: 2.5rem;
   }
 
-  .featured-section {
-    padding-bottom: 5rem;
+  .mac-speech-bubble {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.85rem;
+    top: -2.8rem;
   }
-
 }
 
-
-/* Small Mobile Devices */
+/* Small mobile devices */
 @media (max-width: 480px) {
 
-  .typewriter {
-    width: 100%;
-    font-size: 2rem;
-    line-height: 1.3;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  .home-page {
-    padding-top: 5rem;
-    border-width: 0.5rem;
-  }
-
-  .hero-greeting {
-    font-size: 1rem;
-    letter-spacing: 1px;
-  }
-
   .hero-section {
-    width: 94%;
     padding: 1.2rem 0.8rem;
-    margin-bottom: 2.5rem;
-    border-width: 0.5rem;
-    border-radius: 18px;
+    gap: 1.5rem;
   }
 
   .hero-content {
@@ -299,67 +280,35 @@ a.active .menu-button {
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.6rem;
     letter-spacing: 1px;
-    line-height: 1.25;
   }
 
-  .hero-subtitle {
-    font-size: 1rem;
+  .hero-image,
+  .mac-eyes-wrapper {
+    width: 180px;
   }
 
-  .hero-description {
-    font-size: 0.9rem;
-    line-height: 1.6;
+  .mac-eyes-wrapper {
+    margin-top: 2rem;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-    width: 90%;
+  .mac-speech-bubble {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.7rem;
+    top: -2.4rem;
   }
-
-  .featured-section {
-    padding-bottom: 4rem;
-  }
-
 }
 
-
-/* Extra Small Devices */
+/* Extra small devices */
 @media (max-width: 360px) {
 
-  .home-page {
-    padding-top: 4.5rem;
-    border-width: 0.4rem;
-  }
-
-  .hero-section {
-    width: 95%;
-    padding: 1rem 0.6rem;
-    border-width: 0.4rem;
-    border-radius: 14px;
-  }
-
-  .hero-greeting {
-    font-size: 0.9rem;
-  }
-
   .hero-title {
-    font-size: 1.7rem;
-    letter-spacing: 0.5px;
+    font-size: 2.2rem;
   }
 
-  .hero-subtitle {
-    font-size: 0.9rem;
+  .hero-image,
+  .mac-eyes-wrapper {
+    width: 150px;
   }
-
-  .hero-description {
-    font-size: 0.85rem;
-  }
-
-  .skills-grid {
-    width: 95%;
-  }
-
 }

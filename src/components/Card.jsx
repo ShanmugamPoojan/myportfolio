@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import "../styling/card.css";
 
 function Card({ item }) {
     const [expanded, setExpanded] = useState(false);
     const cardRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
-    const navigate = useNavigate();
     const assetBase = `${import.meta.env.BASE_URL}assets/`;
 
     useEffect(() => {
@@ -16,7 +15,7 @@ function Card({ item }) {
                     observer.unobserve(entry.target);
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 0.1 }
         );
 
         if (cardRef.current) {
@@ -74,11 +73,6 @@ function Card({ item }) {
                         {item.description}
                     </p>
 
-                    {item.section === "home" && (<br/>)}
-                    {item.section === "home" && (<p>
-                        {item.description2}
-                    </p>)}
-
                     {expanded && (
                         <br />
                     )}
@@ -95,7 +89,7 @@ function Card({ item }) {
                     {
                         item.section === "home" ?
                             <div className="card-buttons home-card-buttons">
-                                <button className="button" onClick={() => navigate("/projects")} >
+                                {/* <button className="button" onClick={() => navigate("/projects")} >
                                     <pre>
                                         {`View My Projects   >>`}
                                     </pre>
@@ -104,7 +98,7 @@ function Card({ item }) {
                                     <pre>
                                         {`View My Journey   >>`}
                                     </pre>
-                                </button>
+                                </button> */}
                             </div>
                             :
                             <div className="card-buttons">

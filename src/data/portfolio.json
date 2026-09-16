@@ -15,46 +15,63 @@
       "subtitle": "Full Stack Developer | Creative Problem Solver",
       "description": "Building beautiful and interactive web experiences with React, Node.js, and modern web technologies."
     },
-    "overview": {
-      "section": "home",
+    "overview": [
+      {
+        "section": "home",
       "image": [
-        "samp.gif"
+        "about_internship2.jpeg",
+        "about_jssstu1.jpeg",
+        "about_ellucian1.jpeg"
       ],
-      "description": "My journey into technology began with a natural curiosity about computers and a desire to explore new things. I have always been someone who enjoys creating and experimenting, which eventually led me towards web technologies and software development. I completed my Bachelor of Computer Applications (BCA) from JSS Science and Technology University, Mysuru, and I am currently pursuing my Master of Computer Applications (MCA) from Jain University, Bengaluru, with a specialization in Cloud Computing. I am passionate about building new and creative things, learning new technologies, and continuously expanding my knowledge. ",
-      "description2": "My strongest technical areas currently include Frontend Development, JavaScript, SQL, and PL/SQL, while I am actively working on strengthening my knowledge in other areas, particularly cloud technologies. Beyond technology, I have a creative side that I enjoy exploring through arts and crafts, crochet, and reading. I also value the time I spend with the people I love. I believe that creativity is not limited to one field—it is a way of thinking that can be applied to both technology and life. My personal philosophy is simple: 'You can, if you think you can.' I believe that confidence, determination, and the willingness to learn can take us further than we initially imagine."
-    }
+        "description": "My journey into technology began with a natural curiosity about computers and a desire to explore new things. I have always been someone who enjoys creating and experimenting, which eventually led me towards web technologies and software development. I completed my Bachelor of Computer Applications (BCA) from JSS Science and Technology University, Mysuru, and I am currently pursuing my Master of Computer Applications (MCA) from Jain University, Bengaluru, with a specialization in Cloud Computing. I am passionate about building new and creative things, learning new technologies, and continuously expanding my knowledge. "
+      },
+      {
+        "section": "home",
+        "description": "My strongest technical areas currently include Frontend Development, JavaScript, SQL, and PL/SQL, while I am actively working on strengthening my knowledge in other areas, particularly cloud technologies. Beyond technology, I have a creative side that I enjoy exploring through arts and crafts, crochet, and reading. I also value the time I spend with the people I love. I believe that creativity is not limited to one field—it is a way of thinking that can be applied to both technology and life. My personal philosophy is simple: 'You can, if you think you can.' I believe that confidence, determination, and the willingness to learn can take us further than we initially imagine."
+      }
+    ]
   },
-  "skills": [
-    {
-      "id": 1,
-      "name": "React",
-      "icon": "⚛️"
-    },
-    {
-      "id": 2,
-      "name": "Node.js",
-      "icon": "🟢"
-    },
-    {
-      "id": 3,
-      "name": "Databases",
-      "icon": "🗄️"
-    },
-    {
-      "id": 4,
-      "name": "UI/UX Design",
-      "icon": "🎨"
-    }
-  ],
   "skillsList": [
-    "JavaScript",
-    "React",
-    "Node.js",
-    "MongoDB",
-    "CSS/HTML",
-    "Git",
-    "REST API",
-    "MySQL"
+    {
+      "name": "JavaScript",
+      "category": "Language",
+      "description": "Core language used to build interactive, dynamic behavior across every project."
+    },
+    {
+      "name": "React",
+      "category": "Frontend",
+      "description": "Component-based library used to build fast, reusable user interfaces."
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend",
+      "description": "JavaScript runtime used to build scalable server-side applications and APIs."
+    },
+    {
+      "name": "MongoDB",
+      "category": "Database",
+      "description": "NoSQL database used for flexible, document-based data storage."
+    },
+    {
+      "name": "CSS/HTML",
+      "category": "Frontend",
+      "description": "Foundational markup and styling used to structure and design every page."
+    },
+    {
+      "name": "Git",
+      "category": "Tools",
+      "description": "Version control system used to track changes and collaborate on code."
+    },
+    {
+      "name": "REST API",
+      "category": "Backend",
+      "description": "Designing and consuming APIs for client-server communication."
+    },
+    {
+      "name": "MySQL",
+      "category": "Database",
+      "description": "Relational database used for structured, query-based data storage."
+    }
   ],
   "projects": [
     {
@@ -104,6 +121,16 @@
   ],
   "journey": [
     {
+      "id": 0,
+      "section": "journey",
+      "title": "The Begining",
+      "subTitle": "Stepping to the world of Compter Science",
+      "duration": "2022",
+      "description": "After completing school, I had the grades to pursue engineering and could have joined a good engineering college. However, I chose a different path. I decided to pursue a Bachelor of Computer Applications, even though BCA is often considered by many as a secondary choice compared to engineering. For me, it was a conscious decision.",
+      "description2": "I wanted to prove that I could build a successful career with the path I had chosen. I did not want my degree to define my limitations. Instead, I wanted my skills, hard work, and determination to define what I could achieve. During my BCA journey, I became aware that engineering students often had greater exposure to certain technologies and opportunities. Rather than regretting my decision, I saw it as a challenge. I wanted to achieve everything I could with the degree I had chosen and create my own opportunities. That mindset pushed me to work harder and eventually helped me secure an on-campus internship at Ellucian"
+    },
+    {
+      "id": 1,
       "section": "journey",
       "title": "Bachulors of Computer Applications",
       "subTitle": " JSS Science and Technology University, Mysore",
@@ -119,6 +146,7 @@
       ]
     },
     {
+      "id": 2,
       "section": "journey",
       "title": "Techinical Intern",
       "subTitle": "Ellucian Higher Education Solutions, Bengaluru",
@@ -133,7 +161,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 3,
       "section": "journey",
       "title": "Associate Technical Consultant",
       "subTitle": "Ellucian Higher Education Solutions, Bengaluru",
@@ -159,43 +187,26 @@
       "id": 2,
       "title": "Mastered React",
       "subTitle": "2022",
-      "icon": "⚛️",
       "description": "Deep dive into React ecosystem, hooks, and component design patterns."
     },
     {
       "id": 3,
       "title": "Full Stack Development",
       "subTitle": "2023",
-      "icon": "🖥️",
       "description": "Extended skills to backend with Node.js and database management."
     },
     {
       "id": 4,
       "title": "First Professional Role",
       "subTitle": "2023 - Present",
-      "icon": "🚀",
-      "description": "Working on real-world projects and collaborating with teams."
-    },
-    {
-      "id": 5,
-      "title": "First Professional Role",
-      "subTitle": "2023 - Present",
-      "icon": "🚀",
-      "description": "Working on real-world projects and collaborating with teams."
-    },
-    {
-      "id": 6,
-      "title": "First Professional Role",
-      "subTitle": "2023 - Present",
-      "icon": "🚀",
       "description": "Working on real-world projects and collaborating with teams."
     }
   ],
   "achievements": [
-    "✨ Built and deployed 10+ projects",
-    "✨ Contributed to open-source projects",
-    "✨ Solved complex technical challenges",
-    "✨ Continuously learning new technologies"
+    "Built and deployed 10+ projects",
+    "Contributed to open-source projects",
+    "Solved complex technical challenges",
+    "Continuously learning new technologies"
   ],
   "about2": {
     "intro": "I'm a passionate full-stack developer from India with a love for creating beautiful, functional web experiences. I specialize in modern web technologies and am always eager to learn new things.",

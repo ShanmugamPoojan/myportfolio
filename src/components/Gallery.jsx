@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import "../styling/card.css";
 
 function Gallery({ item }) {
     // const [imageIndex, setImageIndex] = useState(0);
@@ -68,9 +69,9 @@ function Gallery({ item }) {
                     </div>
                 </div>
             </div>
-            {expanded && (
+            {expanded && item.description2 && (
                 <div className="card-description card-description-expanded">
-                    <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab corporis quam similique, animi molestias consequatur temporibus, voluptatum illo error recusandae praesentium minus eligendi tenetur tempore aperiam voluptas ullam? Pariatur debitis corrupti quos molestias deleniti repellat nam, sed architecto dolore ducimus nesciunt iste aliquid quaerat vitae distinctio harum minima nemo culpa blanditiis odio. Facere, qui magnam soluta explicabo natus, perspiciatis quis, nemo totam hic doloremque corrupti eligendi at dolore et itaque quam facilis dolores voluptatibus ut inventore ipsam! A voluptatum eveniet dicta laboriosam, facilis, nobis porro esse rem neque id amet cumque obcaecati suscipit ex magni architecto tempora, voluptatem nemo quas doloremque impedit? Cupiditate perferendis id autem quidem nam ipsa, quos cumque nesciunt at. Eius rerum accusantium ipsum iste cupiditate magnam libero a assumenda neque sequi aspernatur ullam, vitae tempora reprehenderit nemo temporibus fugiat, aliquid doloremque asperiores perferendis ut ratione. Aliquam fugit totam, omnis tempora, voluptates inventore aspernatur corporis dolorem aliquid aperiam soluta saepe voluptate amet. Iure et nemo reiciendis dolor error doloremque, dolore assumenda nisi odio necessitatibus vero dicta minima eius laborum ipsa voluptatem sint sed accusantium laboriosam distinctio ratione numquam fugiat! Illum dolores dolore, provident aliquid odit aut voluptates assumenda sunt. Dignissimos, nobis! Officiis sunt odit sed velit ratione.</span>
+                    <span>{item.description2}</span>
                 </div>
             )}
             <div className="card-buttons">

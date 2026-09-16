@@ -6,12 +6,10 @@ import '../styling/about.css';
 function About() {
   const [aboutData, setAboutData] = useState(null);
   const [experienceData, setExperienceData] = useState([]);
-  const [skillsList, setSkillsList] = useState([]);
 
   useEffect(() => {
-    setAboutData(portfolioData.about);
+    setAboutData(portfolioData.about2);
     setExperienceData(portfolioData.about);
-    setSkillsList(portfolioData.skillsList);
   }, []);
 
   if (!aboutData) return <div>Loading...</div>;
@@ -19,20 +17,25 @@ function About() {
   return (
     <div className="about-page main-page">
       <div className="about-header main-page-header container">
-        <h2>About Me</h2>
-        <p className="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor obcaecati numquam quod repellat ut, nulla, fugit soluta tempora hic illo recusandae autem facilis eum. Excepturi nobis sint impedit voluptas dignissimos minus, voluptatibus ipsum eligendi iste ea, distinctio hic cum? Sed rem natus debitis necessitatibus! Temporibus tenetur iusto atque corporis?</p>
+        <h1 className="hero-subtitle">
+          <span>
+            About Me
+          </span>
+        </h1>
+        <p className="hero-description">{portfolioData.profile.subtitle}</p>
+          <h2 className="hero-subtitle">Who Am I?</h2>
+          <p className="hero-description">{aboutData.intro}</p>
+          <p className="hero-description">{aboutData.interests}</p>
+        <div className="about-intro">
+        </div>
       </div>
 
       <div className="cards-container scatter-pattern">
         <div className='container'>
-          <div className="about-intro">
-            <h2>Who Am I?</h2>
-            <p>{aboutData.intro}</p>
-          </div>
 
           <div className="about-section ">
             {experienceData.map((exp, ind) => (
-              <Card item={{ 'index': ind + 1, ...exp }} />
+              <Card key={exp.title || ind} item={{ 'index': ind + 1, ...exp }} />
             ))}
           </div>
         </div>

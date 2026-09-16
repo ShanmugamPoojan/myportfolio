@@ -1,0 +1,53 @@
+/* ==========================================================================
+   about.css  —  styles for About.jsx only
+   ========================================================================== */
+
+.about-header .hero-description {
+  max-width: 70ch;
+}
+
+.about-intro {
+  margin-bottom: 2rem;
+}
+
+.about-intro p {
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================== About Page Responsive Design ==================== */
+
+@media (max-width: 1024px) {
+
+  .about-intro {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .about-header .hero-description {
+    max-width: 100%;
+  }
+
+  .about-intro {
+    margin-bottom: 1.2rem;
+  }
+
+  .about-intro p {
+    margin-top: 0.75rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .about-intro {
+    margin-bottom: 1rem;
+  }
+}

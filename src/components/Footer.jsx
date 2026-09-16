@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom';
+import portfolioData from '../data/portfolio.json';
 import '../styling/footer.css';
 
 function Footer() {
+  const { social, profile } = portfolioData;
+
   return (
     <footer className="footer">
 
       <div className="footer-top">
         <div className="footer-socials">
-          <a href="#">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Email</a>
+          <a href={social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href={`mailto:${profile.email}`}>Email</a>
         </div>
       </div>
 

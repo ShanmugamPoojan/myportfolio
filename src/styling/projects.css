@@ -1,2 +1,97 @@
+/* ==========================================================================
+   projects.css  —  styles for Projects.jsx only
+   (.skill-card base styling lives in App.css since MyJourney reuses it.)
+   ========================================================================== */
 
+.skills-section {
+  margin: 2rem 0 3rem 0;
+}
 
+.skills-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.skill-card-tag {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--secondary-light);
+  margin-bottom: 0.5rem;
+}
+
+.skill-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+.skill-card p {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--secondary);
+}
+
+.skill-card-category {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--primary-light);
+  border: 0.15rem solid var(--secondary);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ==================== Projects Responsive Design ======================= */
+
+@media (max-width: 1024px) {
+
+  .skills-section {
+    margin: 1.5rem 0 2.5rem 0;
+  }
+
+  .skills-grid-cards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .skills-grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .skill-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .skill-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .skills-section {
+    margin: 1.2rem 0 2rem 0;
+  }
+
+  .skills-grid-cards {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .skill-card-tag {
+    font-size: 0.8rem;
+  }
+
+  .skill-card-category {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+  }
+}
